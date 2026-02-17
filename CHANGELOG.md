@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ### Added
+- CI/CD pipeline with GitHub Actions workflows (Issue #14)
+  - `test.yml`: Automated frontend linting and backend pytest execution
+  - `lint.yml`: Code quality checks (UI5 linter, Ruff for Python)
+  - `deploy.yml`: Build and deployment pipeline with staging/production environments
+- Workflows use `uv` for fast Python dependency management
+- Coverage reporting integration with Codecov
+- Manual workflow dispatch for deployment environment selection
 - Initial project scaffolding for CodeScale Research Radar
 - SAPUI5 frontend structure with Component.js, manifest.json, and routing
 - Base views (App.view.xml, Main.view.xml) with i18n support
