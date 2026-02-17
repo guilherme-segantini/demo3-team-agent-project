@@ -6,6 +6,9 @@ venv/
 .venv/
 .env
 *.db
+.coverage
+htmlcov/
+.pytest_cache/
 
 # Node
 node_modules/
