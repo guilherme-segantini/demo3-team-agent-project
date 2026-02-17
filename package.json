@@ -1,0 +1,15 @@
+{
+  "name": "codescale-research-radar",
+  "version": "1.0.0",
+  "description": "Signal vs Noise classification dashboard for engineering teams",
+  "scripts": {
+    "start": "ui5 serve --open index.html",
+    "build": "ui5 build --clean-dest --all",
+    "lint": "ui5lint",
+    "test": "ui5 serve --open test/testsuite.qunit.html"
+  },
+  "devDependencies": {
+    "@ui5/cli": "^4.0.0",
+    "@ui5/linter": "^1.0.0"
+  }
+}

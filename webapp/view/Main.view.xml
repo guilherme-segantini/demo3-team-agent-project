@@ -1,0 +1,31 @@
+<mvc:View
+    controllerName="codescale.radar.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:grid="sap.ui.layout.cssgrid">
+    <Page
+        id="mainPage"
+        title="{i18n>mainPageTitle}"
+        showHeader="true">
+        <headerContent>
+            <Button
+                id="refreshButton"
+                icon="sap-icon://refresh"
+                tooltip="{i18n>refreshTooltip}"
+                press=".onRefresh"
+                type="Transparent"/>
+        </headerContent>
+        <content>
+            <Panel
+                id="radarPanel"
+                headerText="{i18n>radarPanelTitle}"
+                class="sapUiMediumMargin">
+                <Text
+                    id="placeholderText"
+                    text="{i18n>placeholderText}"
+                    class="sapUiSmallMargin"/>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>

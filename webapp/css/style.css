@@ -1,0 +1,40 @@
+/* Signal/Noise Card Styles */
+.signalCard {
+    border-left: 4px solid #2b7c2b;
+}
+
+.noiseCard {
+    border-left: 4px solid #666666;
+}
+
+/* Badge Styles */
+.signalBadge {
+    background-color: #2b7c2b !important;
+    color: white !important;
+}
+
+.noiseBadge {
+    background-color: #666666 !important;
+    color: white !important;
+}
+
+/* Card Content */
+.radarCard .sapMPanelContent {
+    padding: 1rem;
+}
+
+/* Confidence Score */
+.confidenceHigh {
+    color: #2b7c2b;
+    font-weight: bold;
+}
+
+.confidenceMedium {
+    color: #e78c07;
+    font-weight: bold;
+}
+
+.confidenceLow {
+    color: #bb0000;
+    font-weight: bold;
+}
