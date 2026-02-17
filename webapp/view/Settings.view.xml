@@ -1,0 +1,17 @@
+<mvc:View
+    controllerName="codescale.radar.controller.Settings"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page
+        id="settingsPage"
+        title="{i18n>navSettings}"
+        showHeader="true"
+        showNavButton="false">
+        <content>
+            <IllustratedMessage
+                illustrationType="sapIllus-SimpleEmptyDoc"
+                title="{i18n>navSettings}"
+                description="{i18n>settingsComingSoon}"/>
+        </content>
+    </Page>
+</mvc:View>

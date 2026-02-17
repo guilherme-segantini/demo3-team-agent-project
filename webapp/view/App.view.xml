@@ -1,7 +1,62 @@
 <mvc:View
+    controllerName="codescale.radar.controller.App"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
+    xmlns:tnt="sap.tnt"
     displayBlock="true">
-    <App id="app">
-    </App>
+    <tnt:ToolPage id="toolPage">
+        <tnt:header>
+            <tnt:ToolHeader>
+                <Button
+                    id="sideNavToggleButton"
+                    icon="sap-icon://menu2"
+                    type="Transparent"
+                    press=".onSideNavToggle"
+                    tooltip="{i18n>toggleMenuTooltip}"/>
+                <ToolbarSpacer/>
+                <Title text="{i18n>appTitle}" level="H4"/>
+                <ToolbarSpacer/>
+                <Button
+                    id="refreshButton"
+                    icon="sap-icon://refresh"
+                    type="Transparent"
+                    press=".onRefresh"
+                    tooltip="{i18n>refreshTooltip}"/>
+            </tnt:ToolHeader>
+        </tnt:header>
+        <tnt:sideContent>
+            <tnt:SideNavigation
+                id="sideNavigation"
+                selectedKey="radar"
+                itemSelect=".onNavigationSelect">
+                <tnt:NavigationList>
+                    <tnt:NavigationListItem
+                        key="radar"
+                        text="{i18n>navRadar}"
+                        icon="sap-icon://radar-chart"/>
+                    <tnt:NavigationListItem
+                        key="voiceai"
+                        text="{i18n>focusAreaVoiceAI}"
+                        icon="sap-icon://microphone"/>
+                    <tnt:NavigationListItem
+                        key="agentorch"
+                        text="{i18n>focusAreaAgentOrch}"
+                        icon="sap-icon://process"/>
+                    <tnt:NavigationListItem
+                        key="durableruntime"
+                        text="{i18n>focusAreaDurableRuntime}"
+                        icon="sap-icon://settings"/>
+                </tnt:NavigationList>
+                <tnt:fixedItem>
+                    <tnt:NavigationListItem
+                        key="settings"
+                        text="{i18n>navSettings}"
+                        icon="sap-icon://action-settings"/>
+                </tnt:fixedItem>
+            </tnt:SideNavigation>
+        </tnt:sideContent>
+        <tnt:mainContents>
+            <NavContainer id="app"/>
+        </tnt:mainContents>
+    </tnt:ToolPage>
 </mvc:View>

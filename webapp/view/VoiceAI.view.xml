@@ -1,0 +1,17 @@
+<mvc:View
+    controllerName="codescale.radar.controller.VoiceAI"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page
+        id="voiceaiPage"
+        title="{i18n>focusAreaVoiceAI}"
+        showHeader="true"
+        showNavButton="false">
+        <content>
+            <IllustratedMessage
+                illustrationType="sapIllus-EmptyList"
+                title="{i18n>focusAreaVoiceAI}"
+                description="{i18n>focusAreaComingSoon}"/>
+        </content>
+    </Page>
+</mvc:View>
