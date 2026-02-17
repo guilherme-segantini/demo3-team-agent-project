@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ### Added
+- REST API CRUD endpoints for trend items (GET /api/items, POST /api/items, PUT /api/items/{id}, DELETE /api/items/{id})
+- Pydantic schemas for request/response validation (TrendCreate, TrendUpdate, TrendResponse, TrendListResponse)
+- Pagination support for GET /api/items endpoint (skip and limit parameters)
+- Comprehensive API tests for all CRUD operations
 - Initial project scaffolding for CodeScale Research Radar
 - SAPUI5 frontend structure with Component.js, manifest.json, and routing
 - Base views (App.view.xml, Main.view.xml) with i18n support

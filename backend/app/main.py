@@ -3,6 +3,13 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from .database import engine
+from .models import Base
+from .routers import items
+
+# Create database tables
+Base.metadata.create_all(bind=engine)
+
 app = FastAPI(
     title="CodeScale Research Radar API",
     description="Signal vs Noise classification API for engineering teams",
@@ -17,6 +24,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Include API routers
+app.include_router(items.router, prefix="/api")
 
 
 @app.get("/")
