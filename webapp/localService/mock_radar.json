@@ -1,0 +1,95 @@
+{
+  "radar_date": "2026-01-30",
+  "trends": [
+    {
+      "focus_area": "voice_ai_ux",
+      "tool_name": "LiveKit Agents",
+      "classification": "signal",
+      "confidence_score": 92,
+      "technical_insight": "Sub-200ms voice-to-voice latency with WebRTC. Supports interruption handling via VAD (Voice Activity Detection). Native Python SDK with async streaming. Published benchmarks show P95 latency <250ms.",
+      "signal_evidence": [
+        "Published latency benchmarks",
+        "Production usage at scale (Daily.co integration)",
+        "Open-source with active technical community"
+      ],
+      "noise_indicators": [],
+      "architectural_verdict": true,
+      "timestamp": "2026-01-30T08:00:00Z"
+    },
+    {
+      "focus_area": "voice_ai_ux",
+      "tool_name": "VoiceHype AI",
+      "classification": "noise",
+      "confidence_score": 85,
+      "technical_insight": "Claims 'revolutionary conversational AI' but provides no latency benchmarks. Demo video only, no SDK or architecture documentation available.",
+      "signal_evidence": [],
+      "noise_indicators": [
+        "No published benchmarks",
+        "Marketing language ('revolutionary', 'human-like')",
+        "Demo-only, no production evidence"
+      ],
+      "architectural_verdict": false,
+      "timestamp": "2026-01-30T08:00:00Z"
+    },
+    {
+      "focus_area": "agent_orchestration",
+      "tool_name": "LangGraph",
+      "classification": "signal",
+      "confidence_score": 87,
+      "technical_insight": "Graph-based agent orchestration with built-in state persistence. Supports cyclic workflows and human-in-the-loop patterns. Native integration with LangChain tools. Checkpoint API enables workflow recovery.",
+      "signal_evidence": [
+        "Detailed architecture documentation",
+        "Production case studies (multiple enterprises)",
+        "Active GitHub with technical discussions"
+      ],
+      "noise_indicators": [],
+      "architectural_verdict": true,
+      "timestamp": "2026-01-30T08:00:00Z"
+    },
+    {
+      "focus_area": "agent_orchestration",
+      "tool_name": "AutoAgent Pro",
+      "classification": "noise",
+      "confidence_score": 78,
+      "technical_insight": "Promises 'fully autonomous agents' but lacks integration documentation. Roadmap-heavy announcements without shipping history.",
+      "signal_evidence": [],
+      "noise_indicators": [
+        "AGI-adjacent marketing claims",
+        "No integration specifications",
+        "Roadmap announcements without releases"
+      ],
+      "architectural_verdict": false,
+      "timestamp": "2026-01-30T08:00:00Z"
+    },
+    {
+      "focus_area": "durable_runtime",
+      "tool_name": "Temporal.io",
+      "classification": "signal",
+      "confidence_score": 94,
+      "technical_insight": "Workflow durability with automatic retries and state recovery. Cold-start ~50ms for cached workers. Supports long-running workflows (days/weeks) with checkpoint persistence. Published SLAs for cloud offering.",
+      "signal_evidence": [
+        "Published cold-start benchmarks",
+        "SLA documentation for durability guarantees",
+        "Enterprise production usage (Netflix, Snap)"
+      ],
+      "noise_indicators": [],
+      "architectural_verdict": true,
+      "timestamp": "2026-01-30T08:00:00Z"
+    },
+    {
+      "focus_area": "durable_runtime",
+      "tool_name": "InfiniScale Runtime",
+      "classification": "noise",
+      "confidence_score": 81,
+      "technical_insight": "Claims 'infinite scale with zero cold starts' but provides no benchmark data. Private beta with waitlist, no architecture documentation.",
+      "signal_evidence": [],
+      "noise_indicators": [
+        "Impossible claims ('zero cold starts')",
+        "No published benchmarks",
+        "Waitlist-only, no technical docs"
+      ],
+      "architectural_verdict": false,
+      "timestamp": "2026-01-30T08:00:00Z"
+    }
+  ]
+}
