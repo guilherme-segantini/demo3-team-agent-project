@@ -1,0 +1,130 @@
+<mvc:View
+    controllerName="codescale.radar.controller.DataTable"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Page
+        id="dataTablePage"
+        title="{i18n>dataTablePageTitle}"
+        showNavButton="true"
+        navButtonPress=".onNavBack">
+        <headerContent>
+            <Button
+                id="refreshTableButton"
+                icon="sap-icon://refresh"
+                tooltip="{i18n>refreshTooltip}"
+                press=".onRefreshTable"
+                type="Transparent"/>
+        </headerContent>
+        <subHeader>
+            <Toolbar id="filterToolbar">
+                <SearchField
+                    id="searchField"
+                    width="40%"
+                    placeholder="{i18n>searchPlaceholder}"
+                    search=".onSearch"
+                    liveChange=".onSearch"/>
+                <ToolbarSpacer/>
+                <Label text="{i18n>focusAreaLabel}" labelFor="focusAreaFilter"/>
+                <Select
+                    id="focusAreaFilter"
+                    change=".onFilterChange"
+                    selectedKey="all">
+                    <core:Item key="all" text="{i18n>allFocusAreas}"/>
+                    <core:Item key="voice_ai_ux" text="{i18n>focusAreaVoiceAI}"/>
+                    <core:Item key="agent_orchestration" text="{i18n>focusAreaAgentOrch}"/>
+                    <core:Item key="durable_runtime" text="{i18n>focusAreaDurableRuntime}"/>
+                </Select>
+                <ToolbarSpacer width="16px"/>
+                <Label text="{i18n>classificationLabel}" labelFor="classificationFilter"/>
+                <Select
+                    id="classificationFilter"
+                    change=".onFilterChange"
+                    selectedKey="all">
+                    <core:Item key="all" text="{i18n>allClassifications}"/>
+                    <core:Item key="signal" text="{i18n>signalLabel}"/>
+                    <core:Item key="noise" text="{i18n>noiseLabel}"/>
+                </Select>
+            </Toolbar>
+        </subHeader>
+        <content>
+            <Table
+                id="trendTable"
+                items="{radar>/trends}"
+                mode="SingleSelectMaster"
+                selectionChange=".onItemSelect"
+                growing="true"
+                growingThreshold="20"
+                alternateRowColors="true">
+                <headerToolbar>
+                    <OverflowToolbar id="tableHeaderToolbar">
+                        <Title
+                            id="tableTitle"
+                            text="{i18n>tableTitleWithCount, {view>/itemCount}}"
+                            level="H2"/>
+                        <ToolbarSpacer/>
+                        <Button
+                            id="sortByNameButton"
+                            text="{i18n>sortByName}"
+                            icon="sap-icon://sort"
+                            press=".onSortByName"
+                            type="Transparent"/>
+                        <Button
+                            id="sortByConfidenceButton"
+                            text="{i18n>sortByConfidence}"
+                            icon="sap-icon://sort-descending"
+                            press=".onSortByConfidence"
+                            type="Transparent"/>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column id="toolNameColumn" width="20%">
+                        <Text text="{i18n>columnToolName}"/>
+                    </Column>
+                    <Column id="focusAreaColumn" width="15%">
+                        <Text text="{i18n>columnFocusArea}"/>
+                    </Column>
+                    <Column id="classificationColumn" width="10%" hAlign="Center">
+                        <Text text="{i18n>columnClassification}"/>
+                    </Column>
+                    <Column id="confidenceColumn" width="12%" hAlign="Center">
+                        <Text text="{i18n>columnConfidence}"/>
+                    </Column>
+                    <Column id="insightColumn" width="43%">
+                        <Text text="{i18n>columnInsight}"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem
+                        type="Navigation"
+                        press=".onItemPress">
+                        <cells>
+                            <Text text="{radar>tool_name}"/>
+                            <Text text="{
+                                path: 'radar>focus_area',
+                                formatter: '.formatter.formatFocusArea'
+                            }"/>
+                            <ObjectStatus
+                                text="{radar>classification}"
+                                state="{= ${radar>classification} === 'signal' ? 'Success' : 'Error'}"
+                                icon="{= ${radar>classification} === 'signal' ? 'sap-icon://accept' : 'sap-icon://decline'}"/>
+                            <ObjectNumber
+                                number="{radar>confidence_score}"
+                                unit="%"
+                                state="{= ${radar>confidence_score} >= 85 ? 'Success' : ${radar>confidence_score} >= 70 ? 'Warning' : 'Error'}"/>
+                            <Text
+                                text="{radar>technical_insight}"
+                                maxLines="2"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+        <footer>
+            <OverflowToolbar id="footerToolbar">
+                <ToolbarSpacer/>
+                <Label text="{i18n>itemCountLabel}: {view>/itemCount}"/>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

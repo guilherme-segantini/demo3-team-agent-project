@@ -36,6 +36,15 @@ sap.ui.define([], function () {
                 "durable_runtime": "Durable Runtime"
             };
             return oMap[sFocusArea] || sFocusArea;
+        },
+
+        formatFocusArea: function (sFocusArea) {
+            var oMap = {
+                "voice_ai_ux": "Voice AI UX",
+                "agent_orchestration": "Agent Orchestration",
+                "durable_runtime": "Durable Runtime"
+            };
+            return oMap[sFocusArea] || sFocusArea;
         }
     };
 });

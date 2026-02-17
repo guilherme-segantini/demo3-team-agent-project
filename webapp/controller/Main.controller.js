@@ -18,6 +18,10 @@ sap.ui.define([
             if (oRadarModel) {
                 oRadarModel.refresh(true);
             }
+        },
+
+        onNavigateToTable: function () {
+            this.navTo("dataTable");
         }
     });
 });

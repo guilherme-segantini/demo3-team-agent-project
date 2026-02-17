@@ -1,0 +1,66 @@
+<mvc:View
+    controllerName="codescale.radar.controller.TrendDetail"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:layout="sap.ui.layout"
+    xmlns:core="sap.ui.core">
+    <Page
+        id="trendDetailPage"
+        title="{view>/toolName}"
+        showNavButton="true"
+        navButtonPress=".onNavBack">
+        <content>
+            <VBox class="sapUiMediumMargin">
+                <ObjectHeader
+                    id="detailHeader"
+                    title="{view>/toolName}"
+                    intro="{view>/focusArea}"
+                    responsive="true">
+                    <statuses>
+                        <ObjectStatus
+                            id="classificationStatus"
+                            text="{view>/classification}"
+                            state="{= ${view>/classification} === 'signal' ? 'Success' : 'Error'}"
+                            icon="{= ${view>/classification} === 'signal' ? 'sap-icon://accept' : 'sap-icon://decline'}"/>
+                    </statuses>
+                    <attributes>
+                        <ObjectAttribute
+                            id="confidenceAttr"
+                            title="{i18n>confidenceLabel}"
+                            text="{view>/confidenceScore}%"/>
+                    </attributes>
+                </ObjectHeader>
+                <Panel id="insightPanel" headerText="{i18n>technicalInsightTitle}" class="sapUiSmallMarginBottom">
+                    <Text id="insightText" text="{view>/technicalInsight}"/>
+                </Panel>
+                <Panel id="evidencePanel" headerText="{i18n>signalEvidenceTitle}" visible="{= ${view>/signalEvidence}.length > 0}">
+                    <List id="evidenceList" items="{view>/signalEvidence}">
+                        <StandardListItem
+                            title="{view>}"
+                            icon="sap-icon://accept"
+                            iconInset="false"/>
+                    </List>
+                </Panel>
+                <Panel id="noisePanel" headerText="{i18n>noiseIndicatorsTitle}" visible="{= ${view>/noiseIndicators}.length > 0}">
+                    <List id="noiseList" items="{view>/noiseIndicators}">
+                        <StandardListItem
+                            title="{view>}"
+                            icon="sap-icon://warning"
+                            iconInset="false"/>
+                    </List>
+                </Panel>
+            </VBox>
+        </content>
+        <footer>
+            <OverflowToolbar id="detailFooter">
+                <ToolbarSpacer/>
+                <Button
+                    id="backToTableButton"
+                    text="{i18n>backToTable}"
+                    press=".onNavBack"
+                    type="Emphasized"/>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

@@ -83,6 +83,16 @@
                     "name": "main",
                     "pattern": "",
                     "target": "main"
+                },
+                {
+                    "name": "dataTable",
+                    "pattern": "table",
+                    "target": "dataTable"
+                },
+                {
+                    "name": "trendDetail",
+                    "pattern": "trend/{index}",
+                    "target": "trendDetail"
                 }
             ],
             "targets": {
@@ -90,6 +100,16 @@
                     "name": "Main",
                     "id": "main",
                     "level": 1
+                },
+                "dataTable": {
+                    "name": "DataTable",
+                    "id": "dataTable",
+                    "level": 1
+                },
+                "trendDetail": {
+                    "name": "TrendDetail",
+                    "id": "trendDetail",
+                    "level": 2
                 }
             }
         }
