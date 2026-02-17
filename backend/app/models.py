@@ -4,7 +4,7 @@ To be implemented in issue #4.
 """
 
 from sqlalchemy import Column, Integer, String, Text, CheckConstraint
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
 
