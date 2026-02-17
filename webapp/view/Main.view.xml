@@ -10,6 +10,12 @@
         showHeader="true">
         <headerContent>
             <Button
+                id="viewTableButton"
+                icon="sap-icon://table-view"
+                tooltip="{i18n>viewTableTooltip}"
+                press=".onNavigateToTable"
+                type="Transparent"/>
+            <Button
                 id="refreshButton"
                 icon="sap-icon://refresh"
                 tooltip="{i18n>refreshTooltip}"
@@ -25,6 +31,12 @@
                     id="placeholderText"
                     text="{i18n>placeholderText}"
                     class="sapUiSmallMargin"/>
+                <Button
+                    id="openTableButton"
+                    text="{i18n>openTableButton}"
+                    press=".onNavigateToTable"
+                    type="Emphasized"
+                    class="sapUiSmallMarginTop"/>
             </Panel>
         </content>
     </Page>
