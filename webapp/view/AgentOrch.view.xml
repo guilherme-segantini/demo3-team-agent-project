@@ -1,0 +1,17 @@
+<mvc:View
+    controllerName="codescale.radar.controller.AgentOrch"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page
+        id="agentorchPage"
+        title="{i18n>focusAreaAgentOrch}"
+        showHeader="true"
+        showNavButton="false">
+        <content>
+            <IllustratedMessage
+                illustrationType="sapIllus-EmptyList"
+                title="{i18n>focusAreaAgentOrch}"
+                description="{i18n>focusAreaComingSoon}"/>
+        </content>
+    </Page>
+</mvc:View>

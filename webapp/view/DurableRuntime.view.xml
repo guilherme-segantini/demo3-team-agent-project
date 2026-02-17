@@ -1,0 +1,17 @@
+<mvc:View
+    controllerName="codescale.radar.controller.DurableRuntime"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page
+        id="durableruntimePage"
+        title="{i18n>focusAreaDurableRuntime}"
+        showHeader="true"
+        showNavButton="false">
+        <content>
+            <IllustratedMessage
+                illustrationType="sapIllus-EmptyList"
+                title="{i18n>focusAreaDurableRuntime}"
+                description="{i18n>focusAreaComingSoon}"/>
+        </content>
+    </Page>
+</mvc:View>

@@ -35,7 +35,7 @@
         "rootView": {
             "viewName": "codescale.radar.view.App",
             "type": "XML",
-            "id": "app"
+            "id": "appView"
         },
         "dependencies": {
             "minUI5Version": "1.136.0",
@@ -43,7 +43,8 @@
                 "sap.ui.core": {},
                 "sap.m": {},
                 "sap.f": {},
-                "sap.ui.layout": {}
+                "sap.ui.layout": {},
+                "sap.tnt": {}
             }
         },
         "contentDensities": {
@@ -76,19 +77,67 @@
                 "viewType": "XML",
                 "path": "codescale.radar.view",
                 "controlId": "app",
-                "controlAggregation": "pages"
+                "controlAggregation": "pages",
+                "bypassed": {
+                    "target": "notFound"
+                }
             },
             "routes": [
                 {
                     "name": "main",
                     "pattern": "",
                     "target": "main"
+                },
+                {
+                    "name": "voiceai",
+                    "pattern": "voiceai",
+                    "target": "voiceai"
+                },
+                {
+                    "name": "agentorch",
+                    "pattern": "agentorch",
+                    "target": "agentorch"
+                },
+                {
+                    "name": "durableruntime",
+                    "pattern": "durableruntime",
+                    "target": "durableruntime"
+                },
+                {
+                    "name": "settings",
+                    "pattern": "settings",
+                    "target": "settings"
                 }
             ],
             "targets": {
                 "main": {
                     "name": "Main",
                     "id": "main",
+                    "level": 1
+                },
+                "voiceai": {
+                    "name": "VoiceAI",
+                    "id": "voiceai",
+                    "level": 1
+                },
+                "agentorch": {
+                    "name": "AgentOrch",
+                    "id": "agentorch",
+                    "level": 1
+                },
+                "durableruntime": {
+                    "name": "DurableRuntime",
+                    "id": "durableruntime",
+                    "level": 1
+                },
+                "settings": {
+                    "name": "Settings",
+                    "id": "settings",
+                    "level": 1
+                },
+                "notFound": {
+                    "name": "NotFound",
+                    "id": "notFound",
                     "level": 1
                 }
             }

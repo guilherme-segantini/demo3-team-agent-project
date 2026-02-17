@@ -7,25 +7,94 @@
     <Page
         id="mainPage"
         title="{i18n>mainPageTitle}"
-        showHeader="true">
-        <headerContent>
-            <Button
-                id="refreshButton"
-                icon="sap-icon://refresh"
-                tooltip="{i18n>refreshTooltip}"
-                press=".onRefresh"
-                type="Transparent"/>
-        </headerContent>
+        showHeader="true"
+        showNavButton="false">
         <content>
-            <Panel
-                id="radarPanel"
-                headerText="{i18n>radarPanelTitle}"
-                class="sapUiMediumMargin">
-                <Text
-                    id="placeholderText"
-                    text="{i18n>placeholderText}"
-                    class="sapUiSmallMargin"/>
-            </Panel>
+            <f:DynamicPage
+                id="dynamicPage"
+                headerExpanded="true"
+                toggleHeaderOnTitleClick="true">
+                <f:title>
+                    <f:DynamicPageTitle>
+                        <f:heading>
+                            <Title text="{i18n>radarPanelTitle}"/>
+                        </f:heading>
+                        <f:snappedContent>
+                            <Text text="{i18n>radarSummary}"/>
+                        </f:snappedContent>
+                        <f:expandedContent>
+                            <Text text="{i18n>radarDescription}"/>
+                        </f:expandedContent>
+                        <f:actions>
+                            <Button
+                                id="filterButton"
+                                icon="sap-icon://filter"
+                                text="{i18n>filterButtonText}"
+                                type="Transparent"
+                                press=".onFilterPress"/>
+                        </f:actions>
+                    </f:DynamicPageTitle>
+                </f:title>
+                <f:header>
+                    <f:DynamicPageHeader pinnable="true">
+                        <HBox justifyContent="SpaceBetween" width="100%">
+                            <VBox class="sapUiSmallMarginEnd">
+                                <Label text="{i18n>signalCountLabel}"/>
+                                <ObjectNumber
+                                    number="{view>/signalCount}"
+                                    unit="{i18n>itemsLabel}"
+                                    state="Success"/>
+                            </VBox>
+                            <VBox class="sapUiSmallMarginEnd">
+                                <Label text="{i18n>noiseCountLabel}"/>
+                                <ObjectNumber
+                                    number="{view>/noiseCount}"
+                                    unit="{i18n>itemsLabel}"
+                                    state="None"/>
+                            </VBox>
+                            <VBox>
+                                <Label text="{i18n>lastUpdatedLabel}"/>
+                                <Text text="{view>/lastUpdated}"/>
+                            </VBox>
+                        </HBox>
+                    </f:DynamicPageHeader>
+                </f:header>
+                <f:content>
+                    <Panel
+                        id="radarPanel"
+                        class="sapUiNoContentPadding">
+                        <IconTabBar
+                            id="focusAreaTabs"
+                            select=".onFocusAreaSelect"
+                            selectedKey="all">
+                            <items>
+                                <IconTabFilter
+                                    key="all"
+                                    text="{i18n>allAreasTab}"
+                                    icon="sap-icon://grid"/>
+                                <IconTabFilter
+                                    key="voiceai"
+                                    text="{i18n>focusAreaVoiceAI}"
+                                    icon="sap-icon://microphone"/>
+                                <IconTabFilter
+                                    key="agentorch"
+                                    text="{i18n>focusAreaAgentOrch}"
+                                    icon="sap-icon://process"/>
+                                <IconTabFilter
+                                    key="durableruntime"
+                                    text="{i18n>focusAreaDurableRuntime}"
+                                    icon="sap-icon://settings"/>
+                            </items>
+                            <content>
+                                <Text
+                                    id="placeholderText"
+                                    text="{i18n>placeholderText}"
+                                    class="sapUiMediumMargin"/>
+                            </content>
+                        </IconTabBar>
+                    </Panel>
+                </f:content>
+            </f:DynamicPage>
         </content>
     </Page>
 </mvc:View>
